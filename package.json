@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "vite",
+    "server": "npx json-server -p 3500 -w data/db.json",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint:fix": "eslint . --fix",
