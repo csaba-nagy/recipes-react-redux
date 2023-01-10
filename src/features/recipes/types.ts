@@ -2,7 +2,8 @@ export interface Recipe {
   id: string
   title: string
   description: string
-  ingredients: Ingredient[]
+  ingredients: Ingredient[],
+  instructions: string,
 }
 
 interface Ingredient {
@@ -15,5 +16,5 @@ export type RequestStatus = 'idle' | 'loading' | 'succeeded' | 'failed'
 export interface RecipesInitialState {
   recipes: Recipe[]
   status: RequestStatus
-  error: null
+  error: null | string
 }

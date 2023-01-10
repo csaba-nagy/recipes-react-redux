@@ -1,3 +1,20 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Pork with smashed potatoes",
+      "description": "Lorem ipsum dolor sit amet",
+      "ingredients": [
+        {
+          "name": "Pork meat",
+          "quantity": "1kg"
+        },
+        {
+          "name": "Potatoes",
+          "quantity": "1kg"
+        }
+      ],
+      "instructions": "Lorem ipsum"
+    }
+  ]
 }

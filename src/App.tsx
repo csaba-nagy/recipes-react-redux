@@ -1,8 +1,10 @@
+import RecipesList from "./features/recipes/components/RecipesList"
+
 function App() {
   return (
-    <div className="App">
-     <h1>Hello React</h1>
-    </div>
+    <main className="App">
+      <RecipesList />
+    </main>
   )
 }
 
