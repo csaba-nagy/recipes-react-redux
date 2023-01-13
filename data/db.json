@@ -1,20 +1,17 @@
 {
   "recipes": [
     {
-      "id": "1",
-      "title": "Pork with smashed potatoes",
-      "description": "Lorem ipsum dolor sit amet",
+      "title": "French Stew",
+      "description": "dsfsfdsvxc",
       "ingredients": [
         {
-          "name": "Pork meat",
-          "quantity": "1kg"
-        },
-        {
-          "name": "Potatoes",
-          "quantity": "1kg"
+          "name": "Carrot",
+          "quantity": "1",
+          "unit": "piece"
         }
       ],
-      "instructions": "Lorem ipsum"
+      "instructions": "adsafdsadad",
+      "id": "wL00Gw3nmxK6OQQCzzWjz"
     }
   ]
 }

@@ -1,5 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.App {
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Lato', sans-serif;
+}
+
+textarea,
+.button-container {
+  min-width: 70vw;
+  max-width: 70vw;
+}
+
+input, .container, select {
+  width: 100%;
+}
+
+button {
+  padding: 20px 0;
+  border-radius: 5px;
+  border: none;
+  font-size: medium;
+  border: 1px solid white;
+  width: 100%;
+  cursor: pointer;
+}
+
+div input, textarea, select {
+  font-size: medium;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 3px 10px 3px #d5d5d5;
+  padding: 10px 20px;
+}
+
+textarea {
+  font-family: 'Lato', sans-serif;
+}
+
+.AddRecipeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-title {
+  font-size: xx-large;
+  text-align: center;
+}
+
+form, .recipe-base-data, .ingredients-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.recipe-base-data textarea {
+  min-height: 10vh;
+  max-height: 10vh;
+}
+
+.orange-button {
+  background-color: orange;
+  color: white;
+  transition: ease 0.3s;
+}
+
+.orange-button:hover {
+  color: orange;
+  background-color: white;
+  border: 1px solid orange;
+}
+
+.green-button {
+  background-color: green;
+  color: white;
+  transition: ease 0.3s;
+}
+
+button:disabled,
+button:disabled:hover {
+  background-color: gray;
+  color: black;
+  border: 1px solid white;
+}
+
+.green-button:hover {
+  color: green;
+  background-color: white;
+  border: 1px solid green;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.red-button {
+  background-color: crimson;
+  color: white;
+  transition: ease 0.3s;
+}
+
+.red-button:hover {
+  color: crimson;
+  background-color: white;
+  border: 1px solid crimson;
+}
+
+.instructions {
+  min-height: 20vh;
+  max-height: 50vh;
+}
+
+.container, .ingredient-panel {
+  display: flex;
+}
+
+.container {
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.ingredients-form {
+  width: 50%;
+  align-items: flex-start;
+}
+
+.small {
+  font-size: small;
+  padding: 2px;
+  width: 20px;
 }

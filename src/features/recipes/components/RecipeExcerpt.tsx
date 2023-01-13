@@ -1,6 +1,6 @@
-import { Recipe } from '../types'
+import type { Recipe } from '../types'
 
-const RecipeExcerpt = ({title, description}: Recipe) => {
+const RecipeExcerpt = ({ title, description }: Recipe) => {
   return (
     <article>
       <h3>{title}</h3>

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { Recipe, RecipesInitialState, RequestStatus } from './types'
-import { fetchRecipes } from './recipes.thunks'
+import { createNewRecipe, fetchRecipes } from './recipes.thunks'
 
 const initialState: RecipesInitialState = {
   recipes: [],
@@ -11,7 +11,9 @@ const initialState: RecipesInitialState = {
 const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchRecipes.pending, (state, action) => {
@@ -20,12 +22,17 @@ const recipesSlice = createSlice({
       .addCase(fetchRecipes.fulfilled, (state, action) => {
         state.status = 'succeeded'
 
-        state.recipes = [...state.recipes, ...action.payload]
+        state.recipes = action.payload
       })
       .addCase(fetchRecipes.rejected, (state, action) => {
         state.status = 'failed'
 
         state.error = action.error.message || 'Unknown Error'
+      })
+      .addCase(createNewRecipe.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+
+        state.recipes = [...state.recipes, action.payload]
       })
   },
 })
@@ -33,12 +40,11 @@ const recipesSlice = createSlice({
 // TODO: Define the State type properly
 interface RecipesState {
   recipes: {
-    recipes: Recipe[],
-    status: RequestStatus,
+    recipes: Recipe[]
+    status: RequestStatus
     error: string | null
   }
 }
-
 
 export const selectRecipes = (state: RecipesState) => state.recipes
 
