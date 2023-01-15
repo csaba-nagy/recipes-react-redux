@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { API_BASE_URL } from '../../app/api'
-import type { Recipe } from './types'
+import { API_BASE_URL } from '../app/api'
+import type { Recipe } from '../app/types'
 
 export const fetchRecipes = createAsyncThunk('recipes/fetchRecipes', async () => {
   const response = await axios.get(API_BASE_URL)

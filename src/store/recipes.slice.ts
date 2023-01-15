@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
-import type { Recipe, RecipesInitialState, RequestStatus } from './types'
 import { createNewRecipe, fetchRecipes } from './recipes.thunks'
+import type { RecipeState } from './types'
+import type { RootState } from '.'
 
-const initialState: RecipesInitialState = {
+const initialState: RecipeState = {
   recipes: [],
   status: 'idle',
   error: null,
@@ -11,9 +12,7 @@ const initialState: RecipesInitialState = {
 const recipesSlice = createSlice({
   name: 'recipes',
   initialState,
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(fetchRecipes.pending, (state) => {
@@ -37,15 +36,6 @@ const recipesSlice = createSlice({
   },
 })
 
-// TODO: Define the State type properly
-interface RecipesState {
-  recipes: {
-    recipes: Recipe[]
-    status: RequestStatus
-    error: string | null
-  }
-}
-
-export const selectRecipes = (state: RecipesState) => state.recipes
+export const selectRecipes = (state: RootState) => state.recipes
 
 export default recipesSlice.reducer

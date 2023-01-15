@@ -1,4 +1,4 @@
-import type { Ingredient } from '../types'
+import type { Ingredient } from '../../../store/types'
 
 const IngredientPanel = (props: { ingredient: Ingredient; ingredients: Ingredient[]; setIngredients: React.Dispatch<React.SetStateAction<Ingredient[]>> }) => {
   const { ingredient, setIngredients, ingredients } = props
@@ -10,7 +10,7 @@ const IngredientPanel = (props: { ingredient: Ingredient; ingredients: Ingredien
   }
   return (
     <article className='ingredient-panel'>
-        <p>{ingredient.name} ({ingredient.quantity} {ingredient.quantity === '1' ? ingredient.unit : `${ingredient.unit}s`})</p>
+        <p>{ingredient.name} ({ingredient.quantity} {ingredient.quantity === 1 ? ingredient.unit : `${ingredient.unit}s`})</p>
         <button className='red-button small' onClick={removeIngredient}>X</button>
     </article>
   )

@@ -1,17 +1,3 @@
 {
-  "recipes": [
-    {
-      "title": "French Stew",
-      "description": "dsfsfdsvxc",
-      "ingredients": [
-        {
-          "name": "Carrot",
-          "quantity": "1",
-          "unit": "piece"
-        }
-      ],
-      "instructions": "adsafdsadad",
-      "id": "wL00Gw3nmxK6OQQCzzWjz"
-    }
-  ]
+  "recipes": []
 }

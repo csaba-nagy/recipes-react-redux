@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { selectRecipes } from '../recipes.slice'
+import { selectRecipes } from '../../../store/recipes.slice'
 import RecipeExcerpt from './RecipeExcerpt'
 
 const RecipesList = () => {

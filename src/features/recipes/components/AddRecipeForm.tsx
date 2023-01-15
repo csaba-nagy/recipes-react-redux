@@ -1,20 +1,21 @@
 import { nanoid } from '@reduxjs/toolkit'
 import type { ChangeEvent } from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import type { Ingredient, Recipe, RequestStatus } from '../types'
-import { UNITS } from '../types'
-import { createNewRecipe } from '../recipes.thunks'
+import { useAppDispatch } from '../../../app/hooks'
+import type { RequestStatus } from '../../../app/types'
+import { UNITS } from '../../../app/types'
+import { createNewRecipe } from '../../../store/recipes.thunks'
+import type { Ingredient, Recipe } from '../../../store/types'
 import IngredientsList from './IngredientsList'
 
 const AddRecipeForm = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
 
   const [title, setTitle] = useState<string>('')
   const [description, setDescription] = useState<string>('')
   const [ingredient, setIngredient] = useState<string>('')
   const [ingredients, setIngredients] = useState<Ingredient[]>([])
-  const [quantity, setQuantity] = useState<string>('0')
+  const [quantity, setQuantity] = useState<number>(0)
   const [unit, setUnit] = useState<string>('')
   const [instructions, setInstructions] = useState<string>('')
   const [createRequestStatus, setCreateRequestStatus] = useState<RequestStatus>('idle')
@@ -22,7 +23,7 @@ const AddRecipeForm = () => {
   const onTitleChanged = (e: ChangeEvent<HTMLInputElement>) => setTitle(e.target.value)
   const onDescriptionChanged = (e: ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)
   const onIngredientChanged = (e: ChangeEvent<HTMLInputElement>) => setIngredient(e.target.value)
-  const OnQuantityChanged = (e: ChangeEvent<HTMLInputElement>) => setQuantity(e.target.value)
+  const OnQuantityChanged = (e: ChangeEvent<HTMLInputElement>) => setQuantity(e.target.valueAsNumber)
   const onUnitChanged = (e: ChangeEvent<HTMLSelectElement>) => setUnit(e.target.value)
   const onInstructionsChanged = (e: ChangeEvent<HTMLTextAreaElement>) => setInstructions(e.target.value)
 
@@ -31,7 +32,7 @@ const AddRecipeForm = () => {
     .map(unit => (<option value={unit} key={nanoid()}>{unit}</option>))
 
   const saveIngredient = () => {
-    if (!ingredient || quantity === '0' || !unit)
+    if (!ingredient || quantity === 0 || !unit)
       return
 
     const newIngredient = {
@@ -43,7 +44,7 @@ const AddRecipeForm = () => {
     setIngredients([...ingredients, newIngredient])
 
     setIngredient('')
-    setQuantity('0')
+    setQuantity(0)
   }
 
   const ingredientIsSaveable = [ingredient, quantity, unit].every(Boolean)
@@ -58,7 +59,7 @@ const AddRecipeForm = () => {
     setInstructions('')
     setIngredients([])
     setUnit('')
-    setQuantity('')
+    setQuantity(0)
     setIngredient('')
   }
 
@@ -163,7 +164,14 @@ const AddRecipeForm = () => {
       >
       </textarea>
       <div className='button-container'>
-        <button type='button' className='green-button' disabled={!recipeIsSaveable} onClick={onCreateClicked}>Create</button>
+        <button
+          type='button'
+          className='green-button'
+          disabled={!recipeIsSaveable}
+          onClick={onCreateClicked}
+          >
+            Create
+        </button>
         <button type='button' className='red-button' onClick={reset}>Cancel</button>
       </div>
     </form>

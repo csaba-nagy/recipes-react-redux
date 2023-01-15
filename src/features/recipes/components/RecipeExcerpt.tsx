@@ -1,4 +1,4 @@
-import type { Recipe } from '../types'
+import type { Recipe } from '../../../app/types'
 
 const RecipeExcerpt = ({ title, description }: Recipe) => {
   return (
