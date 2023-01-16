@@ -5,7 +5,7 @@ function App() {
   return (
     <main className="App">
       <RecipesList />
-        <AddRecipeForm />
+      <AddRecipeForm />
     </main>
   )
 }
